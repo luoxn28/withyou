@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import App from './App'
-import Home from './components/HelloFromVux'
 import VueRouter from 'vue-router'
 
 const FastClick = require('fastclick')
@@ -10,9 +9,11 @@ Vue.use(VueRouter)
 
 const router = new VueRouter()
 
+import Index from './pages/Index'
+
 router.map({
   '/': {
-    component: Home
+    component: Index
   }
 })
 
