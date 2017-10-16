@@ -1,7 +1,7 @@
 <template>
   <div>
     <x-header :right-options="{showMore: true}" @on-click-more="showMenus = true">首页</x-header>
-    <app-footer page="Index"></app-footer>
+    <app-footer page="We"></app-footer>
 
     <div v-transfer-dom>
       <actionsheet :menus="menus" v-model="showMenus" show-cancel></actionsheet>
