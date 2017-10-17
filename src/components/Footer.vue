@@ -44,7 +44,7 @@
 </script>
 
 <style>
-  @import '~vux/dist/vux.css';
+  /*@import '~vux/dist/vux.css';*/
 
   .add{
     height:40px;
