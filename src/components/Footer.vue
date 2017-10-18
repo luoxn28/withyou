@@ -45,9 +45,4 @@
 
 <style>
   /*@import '~vux/dist/vux.css';*/
-
-  .add{
-    height:40px;
-    width:40px;
-  }
 </style>
