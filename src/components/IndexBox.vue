@@ -1,24 +1,16 @@
 <template>
   <div>
     <div style="margin: 10px;overflow: hidden;" v-for="item in list">
-      <masker style="border-radius: 2px;">
-        <div class="m-img" :style="{backgroundImage: 'url(' + item.img + ')'}"></div>
-        <div slot="content" class="m-title">
-          {{item.title}}
-          <br/>
-          <span class="m-time">2016-03-18</span>
-        </div>
-      </masker>
-    </div>
-    <div style="margin: 10px;overflow: hidden;">
-      <masker style="border-radius: 2px;" color="F9C90C" :opacity="0.8">
-        <div class="m-img" style="background-image:url(https://cdn.xiaotaojiang.com/uploads/56/4b3601364b86fdfd234ef11d8712ad/_.jpg)"></div>
-        <div slot="content" class="m-title">
-          VUX
-          <br/>
-          <span class="m-time">2016-03-18</span>
-        </div>
-      </masker>
+      <router-link :to=item.url>
+        <masker style="border-radius: 2px;">
+          <div class="m-img" :style="{backgroundImage: 'url(' + item.img + ')'}"></div>
+          <div slot="content" class="m-title">
+            {{item.title}}
+            <br/>
+            <span class="m-time">{{item.time}}</span>
+          </div>
+        </masker>
+      </router-link>
     </div>
   </div>
 </template>
@@ -27,6 +19,9 @@
   import { Masker } from 'vux'
 
   export default {
+    props: [
+      "title"
+    ],
     components: {
       Masker
     },
@@ -34,13 +29,19 @@
       return {
         list: [{
           title: '洗颜新潮流！人气洁面皂排行榜',
-          img: 'https://cdn.xiaotaojiang.com/uploads/82/1572ec37969ee263735262dc017975/_.jpg'
+          img: 'http://i.guancha.cn/news/2017/10/18/20171018104551519.jpg',
+          url: '/we',
+          time: '2016-03-19'
         }, {
           title: '美容用品 & 日用品（上）',
-          img: 'https://cdn.xiaotaojiang.com/uploads/59/b22e0e62363a4a652f28630b3233b9/_.jpg'
+          img: 'https://cdn.xiaotaojiang.com/uploads/59/b22e0e62363a4a652f28630b3233b9/_.jpg',
+          url: '/we',
+          time: '2016-03-20'
         }, {
           title: '远离车内毒气，日本车载空气净化器精选',
-          img: 'https://cdn.xiaotaojiang.com/uploads/56/4b3601364b86fdfd234ef11d8712ad/_.jpg'
+          img: 'https://cdn.xiaotaojiang.com/uploads/56/4b3601364b86fdfd234ef11d8712ad/_.jpg',
+          url: '/we',
+          time: '2016-03-21'
         }]
       }
     }
