@@ -4,7 +4,7 @@
               slot="header" style="width:100%;position:absolute;left:0;top:0;z-index:100;">{{ title }}</x-header>
 
     <div v-transfer-dom>
-      <actionsheet :menus="menus" v-model="showMenus" show-cancel></actionsheet>
+      <actionsheet :menus="menus" v-model="showMenus" @on-click-menu="changeLocale" show-cancel></actionsheet>
     </div>
   </div>
 </template>
@@ -32,6 +32,11 @@
       XHeader,
       Actionsheet,
       TransferDom,
+    },
+    methods: {
+      changeLocale (locale) {
+        console.info(locale)
+      }
     }
   }
 </script>
