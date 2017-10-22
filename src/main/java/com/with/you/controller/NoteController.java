@@ -1,7 +1,10 @@
 package com.with.you.controller;
 
 import com.with.you.bean.NoteBean;
+import com.with.you.dao.NoteDao;
+import com.with.you.service.NoteService;
 import com.with.you.util.WebUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,20 +23,19 @@ import java.util.List;
 @RequestMapping("/note")
 public class NoteController {
 
+    @Autowired
+    private NoteService noteService;
+
     private List<NoteBean> list = new ArrayList<NoteBean>();
 
     @GetMapping("/list")
     public Object getNoteList() {
-        return WebUtil.success(this.list);
+        return WebUtil.success(noteService.getNoteList());
     }
 
     @PostMapping
     public Object postNote(@Validated NoteBean noteBean) {
-
-        noteBean.setTime(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
-        noteBean.setImg("http://i.guancha.cn/news/2017/10/18/20171018104551519.jpg");
-        list.add(noteBean);
-        return WebUtil.success();
+        return WebUtil.success(noteService.insert(noteBean));
     }
 
 }

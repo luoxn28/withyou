@@ -1,22 +1,22 @@
-package com.with.you.bean;
+package com.with.you.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.validator.constraints.NotBlank;
+
+import java.util.Date;
 
 /**
- * NoteBean
+ * NoteEntity
  */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class NoteBean {
+public class NoteEntity {
+    private int id;
     private String noteId;
-    @NotBlank(message = "title 不能为空")
     private String title;
-    @NotBlank(message = "text 不能为空")
     private String text;
-    private String time;
+    private Date time;
     private String img;
 }
