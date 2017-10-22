@@ -30,7 +30,6 @@
     },
     data () {
       return {
-        url: 'http://i.guancha.cn/news/2017/10/18/20171018104551519.jpg',
         list: []
       }
     },
