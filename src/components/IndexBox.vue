@@ -1,16 +1,18 @@
 <template>
   <div>
     <div style="margin: 10px;overflow: hidden;" v-for="item in list">
-      <router-link :to=item.url>
-        <masker style="border-radius: 2px;">
-          <div class="m-img" :style="{backgroundImage: 'url(' + item.img + ')'}"></div>
-          <div slot="content" class="m-title">
-            {{item.title}}
-            <br/>
-            <span class="m-time">{{item.time}}</span>
-          </div>
-        </masker>
-      </router-link>
+      <div style="margin: 10px;overflow: hidden;">
+        <router-link :to=item.url>
+          <masker style="border-radius: 2px;">
+            <div class="m-img" :style="{backgroundImage: 'url(' + item.img + ')'}"></div>
+            <div slot="content" class="m-title">
+              {{item.title}}
+              <br/>
+              <span class="m-time">{{item.time}}</span>
+            </div>
+          </masker>
+        </router-link>
+      </div>
     </div>
   </div>
 </template>
@@ -34,15 +36,31 @@
           time: '2016-03-19'
         }, {
           title: '美容用品 & 日用品（上）',
-          img: 'https://cdn.xiaotaojiang.com/uploads/59/b22e0e62363a4a652f28630b3233b9/_.jpg',
+          img: 'http://i.guancha.cn/news/2017/10/18/20171018121303459.jpg',
           url: '/we',
           time: '2016-03-20'
         }, {
           title: '远离车内毒气，日本车载空气净化器精选',
-          img: 'https://cdn.xiaotaojiang.com/uploads/56/4b3601364b86fdfd234ef11d8712ad/_.jpg',
+          img: 'http://i.guancha.cn/news/2017/10/18/20171018101746567.jpg',
           url: '/we',
           time: '2016-03-21'
         }]
+      }
+    },
+    created: function() {
+      console.info("hello world");
+      this.$http.get("/api/note/list").then((response) => {
+        this.list = response.data.data;
+
+        this.list[0].img = 'http://i.guancha.cn/news/2017/10/18/20171018104551519.jpg';
+        this.list[0].url = '/we';
+      });
+    },
+    methods: {
+      loadNote() {
+        this.$http.get("/api/note/list").then((response) => {
+          this.list = response.data.data;
+        });
       }
     }
   }

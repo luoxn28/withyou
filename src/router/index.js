@@ -8,13 +8,13 @@ Vue.use(VueResource)
 import Index from '@/pages/Index'
 import Collection from '@/pages/Collection'
 import We from '@/pages/We'
-import Note from '@/pages/Note'
+import NewNote from '@/pages/NewNote'
 
 var routes = [
   {path: "/", component:Index},
   {path: "/collection", component:Collection},
   {path: "/we", component:We},
-  {path: "/note", component:Note}
+  {path: "/new/note", component:NewNote}
 ];
 
 export default new Router({

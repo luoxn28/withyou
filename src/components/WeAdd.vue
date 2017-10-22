@@ -1,7 +1,7 @@
 <template>
   <div>
     <group>
-      <cell title="+ 新建记事" value=":)" link="/note"></cell>
+      <cell title="+ 新建记事" value=":)" link="/new/note"></cell>
       <cell title="+ 新建美好瞬间" value=":)" link="/"></cell>
     </group>
   </div>
