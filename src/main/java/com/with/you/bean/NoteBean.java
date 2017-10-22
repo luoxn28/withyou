@@ -16,4 +16,6 @@ public class NoteBean {
     private String title;
     @NotBlank(message = "text 不能为空")
     private String text;
+    private String time;
+    private String img;
 }
